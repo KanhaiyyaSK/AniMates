@@ -1,6 +1,6 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { clearErrors, getProduct } from "../../actions/productAction";
+import { getProduct } from "../../actions/productAction";
 import MetaData from "../layout/MetaData";
 import "./Search.css";
 

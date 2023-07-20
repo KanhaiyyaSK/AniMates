@@ -1,6 +1,6 @@
 import React, { useEffect, Fragment } from "react";
 import { useAlert } from "react-alert";
-import Carousel from "react-material-ui-carousel";
+// import Carousel from "react-material-ui-carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getProductDetails } from "../../actions/productAction";
 import { Rating } from "@material-ui/lab";

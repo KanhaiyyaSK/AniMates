@@ -13,7 +13,7 @@ import LoginSignUp from "./component/user/LoginSignUp";
 import store from "./store";
 import { loadUser } from "./actions/userAction";
 
-import { useSelector } from "react-redux";
+
 import Profile from "./component/user/Profile";
 import ProtectedRoute from "./component/Route/ProtectedRoutes";
 import UpdateProfile from "./component/user/UpdateProfile";
@@ -31,7 +31,7 @@ import Payment from "./component/Cart/Payment";
 import OrderSuccess from "./component/Cart/OrderSuccess";
 
 const App = () => {
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  // const { isAuthenticated, user } = useSelector((state) => state.user);
 
   const [stripeApiKey, setStripeApiKey] = useState("");
 

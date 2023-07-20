@@ -29,7 +29,7 @@ const Home = () => {
       dispatch(clearErrors());
     }
     dispatch(getProduct());
-  }, [dispatch, alert]);
+  }, [dispatch, alert, error]);
   //--------------------------------------------
   return (
     <Fragment>

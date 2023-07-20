@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment, useRef } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
@@ -14,10 +14,10 @@ import {
 
 import axios from "axios";
 import "./Payment.css";
-import CreditCardIcon from '@mui/icons-material/CreditCard';
-import EventIcon from '@mui/icons-material/Event';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import { createOrder, clearErrors } from "../../actions/orderAction";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import EventIcon from "@mui/icons-material/Event";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import { createOrder } from "../../actions/orderAction";
 
 const Payment = ({ history }) => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -30,7 +30,7 @@ const Payment = ({ history }) => {
 
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
-//   const { error } = useSelector((state) => state.newOrder);
+  //   const { error } = useSelector((state) => state.newOrder);
 
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
@@ -107,12 +107,12 @@ const Payment = ({ history }) => {
     }
   };
 
-//   useEffect(() => {
-//     if (error) {
-//       alert.error(error);
-//       dispatch(clearErrors());
-//     }
-//   }, [dispatch, error, alert]);
+  //   useEffect(() => {
+  //     if (error) {
+  //       alert.error(error);
+  //       dispatch(clearErrors());
+  //     }
+  //   }, [dispatch, error, alert]);
 
   return (
     <Fragment>

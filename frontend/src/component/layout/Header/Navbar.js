@@ -6,7 +6,7 @@ import { useAlert } from "react-alert";
 import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 const Navbar = () => {
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const alert = useAlert();
