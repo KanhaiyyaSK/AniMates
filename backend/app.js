@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
+const cors = require("cors");
 
 const errorMiddleware = require("./middleware/error");
 const dotenv = require("dotenv");
@@ -14,6 +15,23 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        "http://localhost:3000",
+        "https://rococo-biscuit-6d18c3.netlify.app",
+      ];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS 🙂"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 // Route Imports
 const product = require("./routes/productRoute");
