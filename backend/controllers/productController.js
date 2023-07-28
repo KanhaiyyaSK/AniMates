@@ -47,9 +47,9 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
   // return next(new ErrorHander("Product not found", 404));
 
   const resultPerPage = 4;
-  const productsCount = await Product.countDocuments();
+  const totalCountPromise = Product.countDocuments(); // Don't execute the query yet
 
-  const apiFeature = new ApiFeatures(Product.find(), req.query)
+  const apiFeature = new ApiFeatures(Product.find().lean(), req.query) // Use .lean() to get plain JavaScript objects
     .search()
     .filter();
 
@@ -60,6 +60,9 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
   apiFeature.pagination(resultPerPage);
 
   products = await apiFeature.query;
+
+  // Execute the total count query after pagination
+  const productsCount = await totalCountPromise;
 
   res.status(200).json({
     total: products.length,
